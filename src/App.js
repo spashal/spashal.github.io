@@ -8,6 +8,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Dashboard from './components/Dashboard'
+import SinglePage from './components/BlogPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/singlePage" component={SinglePage} />
       </div>
     </Router>
   );
