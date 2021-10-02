@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Dashboard from './components/Dashboard'
 import SinglePage from './components/BlogPage';
+import MyComponent from './components/AddBlog';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/logout" component={Logout} />
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/singlePage" component={SinglePage} />
+        <Route path="/add" component={MyComponent} />
       </div>
     </Router>
   );

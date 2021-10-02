@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {backendURL} from '../components/Variables';
 import {useHistory} from 'react-router-dom';
+import TopBar from './templates/Topbar';
 
 const bull = (
   <Box
@@ -104,6 +105,7 @@ export default function Dashboard() {
   const classes = useStyles();
   return (
     <React.Fragment>
+      <TopBar blog></TopBar>
       <main>
             <div>
               {listOfArticles.map((article, ind) =>

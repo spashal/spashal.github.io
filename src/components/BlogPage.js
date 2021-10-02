@@ -9,7 +9,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import TopBar from './templates/Topbar';
 import Typography from '@mui/material/Typography';
+import './BlogPage.css';
+import { Divider } from 'material-ui';
 
 const bull = (
     <Box
@@ -50,13 +53,16 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(6),
     },
+
   }));
+
 
 export default function SinglePage() {
     const search = useLocation().search;
     const name = new URLSearchParams(search).get('blog_title');
-    const [blogTitle, setTitle] = useState();
+    const [blogTitle, setTitle] = useState(name);
     const [blogData, setData] = useState(null);
+    console.log(blogTitle);
 
     useEffect(() => {
         var temp = {
@@ -67,6 +73,7 @@ export default function SinglePage() {
                 if(res.data.error)
                     console.log(res.data.message, res.data.error);
                 else{
+                    console.log(res.data.data);
                     setData(res.data.data);
                 }
             })
@@ -79,20 +86,20 @@ export default function SinglePage() {
 
     return (
         <React.Fragment>
+            <TopBar blog></TopBar>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    {/* Word of the Day */}
-                    {blogData ? blogData.dateCreatedString : "Loading"}
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom align="right">
+                        {blogData ? blogData.dateCreatedString : "Loading"}
                     </Typography>
                     <Typography variant="h2" component="div" align="center">
-                    {blogData ? blogData.title : "Loading"}
+                        {blogData ? blogData.title : "Loading"}
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     </Typography>
-                    <Typography variant="body2">
-                        {blogData ? blogData.text : "Loading"}
-                    </Typography>
+                    <div>
+                      {blogData ? <div dangerouslySetInnerHTML={{__html: blogData.text}}></div>: "Loading"}
+                    </div>
                 </CardContent>
                 {/* <CardActions>
                     <Button size="small">Learn More</Button>
