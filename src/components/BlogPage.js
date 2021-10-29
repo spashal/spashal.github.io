@@ -62,6 +62,7 @@ export default function SinglePage() {
     const name = new URLSearchParams(search).get('blog_title');
     const [blogTitle, setTitle] = useState(name);
     const [blogData, setData] = useState(null);
+    const [isAdmin, setAdmin] = useState(false);
     console.log(blogTitle);
 
     useEffect(() => {
@@ -79,7 +80,16 @@ export default function SinglePage() {
             })
             .catch(err => {
                 console.log(err);
+            });
+        axios.get(backendURL + 'user/legit', {withCredentials:true})
+            .then(res => {
+              if(res.data){
+                setAdmin(true);
+              }
             })
+            .catch(err => {
+              console.log(err)
+            });
     }, []);
 
     const classes = useStyles();

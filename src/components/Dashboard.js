@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import axios from 'axios';
 import ResponsiveDrawer from './templates/Sidebar';
 import AppBar from '@material-ui/core/AppBar';
@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const [listOfArticles, setArticlesList] = React.useState([]);
   const history = useHistory();
+  const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
     axios.get(backendURL + 'articles/forDisplayList')
@@ -85,6 +86,16 @@ export default function Dashboard() {
       .catch(err => {
         console.log(err);
       });
+      axios.get(backendURL + 'user/legit', {withCredentials:true})
+            .then(res => {
+              console.log(res.data);
+              if(res.data){
+                setAdmin(true);
+              }
+            })
+            .catch(err => {
+              console.log(err, "this error in legit");
+            });
   }, []);
 
   const showBlogArticle = (title) => {
@@ -101,6 +112,20 @@ export default function Dashboard() {
     .catch(err => {
         console.log(err);
     });
+  
+  const deleteArticle = (titles) => {
+    const body = {
+      title: titles
+    };
+    console.log(body, "to be deleted");
+    axios.post(backendURL + 'articles/deleteArticle', body, {withCredentials: true})
+      .then(res => {
+        history.push('/dashboard');
+      })
+      .catch(err => {
+        console.log('this error', err);
+      })
+  }
 
   const classes = useStyles();
   return (
@@ -126,6 +151,9 @@ export default function Dashboard() {
                 <Typography variant="body2" align="right">
                   {article.dateCreatedString}
                 </Typography>
+                <Button onClick={() => {deleteArticle(article.title);}}>
+                  Delete
+                </Button>
               </CardContent>
               )}
           </div>
