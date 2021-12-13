@@ -2,6 +2,10 @@ import { Box, Button, Container } from '@material-ui/core';
 import { AppBar, IconButton, Toolbar } from 'material-ui';
 import { CardContent, CardMedia, Typography, Card} from '@mui/material';
 import { Link } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { SocialIcon } from 'react-social-icons';
+
     
 function Copyright() {
   return (
@@ -23,11 +27,12 @@ export default function Footer() {
     <Box sx={{ flexGrow: 1 }}>
       <CardMedia>
           <CardContent>
-              <Typography variant="h6" align="center" >
-              Footer
-              </Typography>
-              <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-              Something here to give the footer a purpose! asdfasdfasdfasdfasdfasdfasdfasdfasdf
+              <Typography variant="h6" align="center"  component="p">
+                Find me at {' '}
+                <SocialIcon url="https://www.linkedin.com/in/palash-sharma-4a49a5200/" bgColor='white' fgColor='black'/>
+                <SocialIcon url="https://twitter.com/PalashS47534442?s=09" bgColor='white' fgColor='black'/>
+                <SocialIcon url="mailto:palash.sharma@students.iiit.ac.in" bgColor='white' fgColor='black'/>
+                <SocialIcon url="https://www.instagram.com/a_sharmaniac?r=nametag" bgColor='white' fgColor='black'/>
               </Typography>
               <Copyright />
           </CardContent>    
