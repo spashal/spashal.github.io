@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from './components/templates/Footer';
 
 import Home from './components/Home'
 import Register from './components/Register'
@@ -10,7 +11,7 @@ import Logout from './components/Logout'
 import Dashboard from './components/Dashboard'
 import SinglePage from './components/BlogPage';
 import MyComponent from './components/AddBlog';
-
+import About from './components/Aboutme';
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
         <Route path="/register" component={Register}/>
         <Route path="/login" component={Login}/>
         <Route path="/logout" component={Logout} />
-        <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/blog" component={Dashboard}/>
         <Route path="/singlePage" component={SinglePage} />
         <Route path="/add" component={MyComponent} />
+        <Route path="/about" component={About} />
       </div>
     </Router>
   );

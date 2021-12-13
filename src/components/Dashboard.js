@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import {backendURL} from '../components/Variables';
 import {useHistory} from 'react-router-dom';
 import TopBar from './templates/Topbar';
+import Footer from './templates/Footer';
 
 const bull = (
   <Box
@@ -21,20 +22,7 @@ const bull = (
   </Box>
 );
 
-    
-function Copyright() {
-    return (
-    <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-    </Typography>
-    );
-}
-    
+
 const useStyles = makeStyles((theme) => ({
   icon: {
       marginRight: theme.spacing(2),
@@ -158,17 +146,7 @@ export default function Dashboard() {
               )}
           </div>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
+      <Footer/>
     </React.Fragment>
   );
 }
