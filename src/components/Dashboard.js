@@ -1,7 +1,5 @@
 import React, {Component, useState, useEffect} from 'react';
 import axios from 'axios';
-import ResponsiveDrawer from './templates/Sidebar';
-import AppBar from '@material-ui/core/AppBar';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
@@ -119,6 +117,7 @@ export default function Dashboard() {
   return (
     <React.Fragment>
       <TopBar blog></TopBar>
+      <div style={{height:'75px'}}></div>
       <main>
             <div>
               {listOfArticles.map((article, ind) =>
@@ -139,14 +138,15 @@ export default function Dashboard() {
                 <Typography variant="body2" align="right">
                   {article.dateCreatedString}
                 </Typography>
+                {isAdmin ? 
                 <Button onClick={() => {deleteArticle(article.title);}}>
                   Delete
-                </Button>
+                </Button> : false}
               </CardContent>
               )}
           </div>
       </main>
-      <Footer/>
+      <Footer />
     </React.Fragment>
   );
 }

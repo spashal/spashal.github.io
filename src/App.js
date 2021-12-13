@@ -2,9 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from './components/templates/Footer';
-
-import Home from './components/Home'
 import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
@@ -19,8 +16,8 @@ function App() {
       <div className="container">
         <br/>
         <Route path="/" exact component={Dashboard}/>
-        <Route path="/register" component={Register}/>
-        <Route path="/login" component={Login}/>
+        {/* <Route path="/register" component={Register}/> */}
+        <Route path="/loginKarnaImpossibleHai112358" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/blog" component={Dashboard}/>
         <Route path="/singlePage" component={SinglePage} />

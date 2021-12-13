@@ -26,7 +26,7 @@ export default class Login extends Component {
                     // window.location = '/login';
                 }
                 else{
-                    window.location = '/dashboard';
+                    window.location = '/blog';
                     console.log(document.cookie + "this cookie");
                 }
             })

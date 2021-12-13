@@ -3,16 +3,12 @@ import {useLocation} from "react-router-dom";
 import axios from 'axios';
 import {backendURL} from '../components/Variables';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, TextField } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import TopBar from './templates/Topbar';
 import Typography from '@mui/material/Typography';
 import './BlogPage.css';
-import { Divider } from 'material-ui';
 
 const bull = (
     <Box
@@ -97,6 +93,9 @@ export default function SinglePage() {
     return (
         <React.Fragment>
             <TopBar blog></TopBar>
+            <div style={{height:'75px'}}>
+
+            </div>
               <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom align="right">
