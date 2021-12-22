@@ -61,15 +61,15 @@ export default function About(props) {
   const history = useHistory();
 
 
-  axios.get(backendURL + "user/legit", {withCredentials: true})
-    .then(res => {
-        if(!res.data){
-//            window.location = '/table-ocr/login';
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
+//   axios.get(backendURL + "user/legit", {withCredentials: true})
+//     .then(res => {
+//         if(!res.data){
+// //            window.location = '/table-ocr/login';
+//         }
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
 
   return (
     <div>

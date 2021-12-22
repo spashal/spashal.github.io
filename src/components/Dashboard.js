@@ -1,5 +1,7 @@
 import React, {Component, useState, useEffect} from 'react';
 import axios from 'axios';
+import ResponsiveDrawer from './templates/Sidebar';
+import AppBar from '@material-ui/core/AppBar';
 import Box from '@mui/material/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
@@ -60,7 +62,7 @@ export default function Dashboard() {
   const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
-    axios.get(backendURL + 'articles/forDisplayList')
+    axios.get(backendURL + 'blogsite/allArticles')
       .then(res => {
         if(res.data.error){
           console.log("An error received with the response", res.data.error);
@@ -72,32 +74,32 @@ export default function Dashboard() {
       .catch(err => {
         console.log(err);
       });
-      axios.get(backendURL + 'user/legit', {withCredentials:true})
-            .then(res => {
-              console.log(res.data);
-              if(res.data){
-                setAdmin(true);
-              }
-            })
-            .catch(err => {
-              console.log(err, "this error in legit");
-            });
+      // axios.get(backendURL + 'user/legit', {withCredentials:true})
+      //       .then(res => {
+      //         console.log(res.data);
+      //         if(res.data){
+      //           setAdmin(true);
+      //         }
+      //       })
+      //       .catch(err => {
+      //         console.log(err, "this error in legit");
+      //       });
   }, []);
 
   const showBlogArticle = (title) => {
     history.push('/singlePage?blog_title=' + title);
   }
 
-  axios.get(backendURL + "user/legit", {withCredentials: true})
-    .then(res => {
-        // console.log(res.data, "this is the response");
-        if(!res.data){
-            // window.location = '/login';
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
+  // axios.get(backendURL + "user/legit", {withCredentials: true})
+  //   .then(res => {
+  //       // console.log(res.data, "this is the response");
+  //       if(!res.data){
+  //           // window.location = '/login';
+  //       }
+  //   })
+  //   .catch(err => {
+  //       console.log(err);
+  //   });
   
   const deleteArticle = (titles) => {
     const body = {
@@ -117,7 +119,6 @@ export default function Dashboard() {
   return (
     <React.Fragment>
       <TopBar blog></TopBar>
-      <div style={{height:'75px'}}></div>
       <main>
             <div>
               {listOfArticles.map((article, ind) =>
@@ -138,15 +139,14 @@ export default function Dashboard() {
                 <Typography variant="body2" align="right">
                   {article.dateCreatedString}
                 </Typography>
-                {isAdmin ? 
                 <Button onClick={() => {deleteArticle(article.title);}}>
                   Delete
-                </Button> : false}
+                </Button>
               </CardContent>
               )}
           </div>
       </main>
-      <Footer />
+      <Footer></Footer>
     </React.Fragment>
   );
 }

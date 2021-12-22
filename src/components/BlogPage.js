@@ -65,7 +65,7 @@ export default function SinglePage() {
         var temp = {
             title: name
         };
-        axios.post(backendURL + 'articles/getBlogArticle', temp)
+        axios.post(backendURL + 'blogsite/getBlogArticle', temp)
             .then(res => {
                 if(res.data.error)
                     console.log(res.data.message, res.data.error);
@@ -77,15 +77,15 @@ export default function SinglePage() {
             .catch(err => {
                 console.log(err);
             });
-        axios.get(backendURL + 'user/legit', {withCredentials:true})
-            .then(res => {
-              if(res.data){
-                setAdmin(true);
-              }
-            })
-            .catch(err => {
-              console.log(err)
-            });
+        // axios.get(backendURL + 'user/legit', {withCredentials:true})
+        //     .then(res => {
+        //       if(res.data){
+        //         setAdmin(true);
+        //       }
+        //     })
+        //     .catch(err => {
+        //       console.log(err)
+        //     });
     }, []);
 
     const classes = useStyles();
