@@ -65,7 +65,7 @@ export default function SinglePage() {
         var temp = {
             title: name
         };
-        axios.post(backendURL + 'blogsite/getBlogArticle', temp)
+        axios.get(backendURL + 'blogsite/getBlogArticle?title=' + name)
             .then(res => {
                 if(res.data.error)
                     console.log(res.data.message, res.data.error);
