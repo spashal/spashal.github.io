@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="container">
         <br/>
-        <Route path="/" exact component={Dashboard}/>
+        <Route path="/" exact component={About}/>
         {/* <Route path="/register" component={Register}/> */}
         <Route path="/loginKarnaImpossibleHai123789" component={Login}/>
         <Route path="/logout" component={Logout} />
