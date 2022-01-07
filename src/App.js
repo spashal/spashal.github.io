@@ -17,7 +17,7 @@ function App() {
         <br/>
         <Route path="/" exact component={Dashboard}/>
         {/* <Route path="/register" component={Register}/> */}
-        <Route path="/loginKarnaImpossibleHai112358" component={Login}/>
+        <Route path="/loginKarnaImpossibleHai123789" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/blog" component={Dashboard}/>
         <Route path="/singlePage" component={SinglePage} />
