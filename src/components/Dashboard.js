@@ -139,9 +139,9 @@ export default function Dashboard() {
                 <Typography variant="body2" align="right">
                   {article.dateCreatedString}
                 </Typography>
-                <Button onClick={() => {deleteArticle(article.title);}}>
+                {/* <Button onClick={() => {deleteArticle(article.title);}}>
                   Delete
-                </Button>
+                </Button> */}
               </CardContent>
               )}
           </div>
