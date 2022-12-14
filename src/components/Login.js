@@ -52,7 +52,7 @@ export default class Login extends Component {
         }
         axios.post('http://localhost:4000/user/login', user, {withCredentials: true})
             .then(res => {
-                if(res.status == 200)
+                if(res.status === 200)
                 {
                     alert("Welcome " + res.data.name);
                     // console.log("Logged in successfully\t" + res.data.name);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
@@ -29,8 +29,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   root2: {
-    height: 500,
-    maxWidth: 900,
+    margin: '0% !important',
+    padding: '0% !important',
+    spacing: '0% !important'
   },
   demo: {
     backgroundColor: theme.palette.background.paper,
@@ -59,8 +60,17 @@ export default function About(props) {
   const [camera, OpenCamera] = useState(false);
   const [curImage, setImage] = useState();
   const history = useHistory();
-
-
+  const [currentlyWorking, getCurrentlyWorking] = useState("");
+  useEffect(() => {
+    axios.get(backendURL + 'blogsite/getCurrentlyWorking')
+      .then(res => {
+        // console.log("haha", res);
+        getCurrentlyWorking(res.data.currentlyWorking.text);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 //   axios.get(backendURL + "user/legit", {withCredentials: true})
 //     .then(res => {
 //         if(!res.data){
@@ -75,14 +85,13 @@ export default function About(props) {
     <div>
         <Topbar></Topbar>
         <div>
-        <Grid container direction="column" justify="center">
+        <Grid container direction="column" justify="left" style={{height:"100%"}}>
             <Grid item>
               
-                
-                <Grid item container className={classes.root} direction="row" justify="center">
-                    <Grid item className={classes.root} style={{maxWidth: "35%"}}>
+                <Grid item container className={classes.root} direction="row" wrap="nowrap" justify="space-evenly">
+                    <Grid item className={classes.root} style={{minWidth: "55%"}}>
                         <Box>
-                            <img src={mypic} style={{maxWidth:'100%'}}/>
+                            <img alt='Shrelock I drew for fun. Turned out great :)' src={mypic} style={{maxWidth:'100%', padding:'15%'}}/>
                         </Box>
                     </Grid>
                     <Grid item className={classes.root}>
@@ -98,9 +107,17 @@ export default function About(props) {
                             I am a Computer Science sophomore at IIIT Hyderabad.<br/>
                             I like to draw ocassionaly and also play music once in a while.<br/>
                             Apart from discussing my views on random topics, you'll find me <br/>supporting Manchester United
-                            so please pray that my taste in football improve.<br/>
+                            so please pray that my taste in football improve.
                              <br/>
-                            If you wish to discuss anything with me, <br/>feel free to reach out! <br/><br/>Do read my blogs and show some love {'<'}3
+                             <br/>
+                            {currentlyWorking}
+                            <br/>
+                            <br/>
+
+                            If you wish to discuss anything with me, <br/>feel free to reach out! 
+                            <br/>
+                            <br/>
+                            Do read my blogs and show some love {'<'}3
                         </Typography>
                         
                     </Grid>

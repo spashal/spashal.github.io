@@ -27,8 +27,9 @@ export default function Footer() {
           <CardContent>
               <Typography variant="h6" align="center"  component="p">
                 Find me at {' '}
-                <SocialIcon url="https://www.linkedin.com/in/palash-sharma-4a49a5200/" target="_blank" bgColor='white' fgColor='black'/>
-                <SocialIcon url="https://twitter.com/PalashS47534442?s=09" target="_blank" bgColor='white' fgColor='black'/>
+                <SocialIcon url="https://www.github.com/spashal/" target="_blank" bgColor='white' fgColor='black'/>
+                <SocialIcon url="https://www.linkedin.com/in/spashal/" target="_blank" bgColor='white' fgColor='black'/>
+                <SocialIcon url="https://twitter.com/a_sharmaniac" target="_blank" bgColor='white' fgColor='black'/>
                 <SocialIcon url="mailto:palash.sharma@students.iiit.ac.in" target="_blank" bgColor='white' fgColor='black'/>
                 <SocialIcon url="https://www.instagram.com/a_sharmaniac?r=nametag" target="_blank" bgColor='white' fgColor='black'/>
               </Typography>

@@ -86,7 +86,7 @@ export default function SinglePage() {
         //     .catch(err => {
         //       console.log(err)
         //     });
-    }, []);
+    });
 
     const classes = useStyles();
 

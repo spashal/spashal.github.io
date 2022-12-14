@@ -45,7 +45,7 @@ function Register() {
         console.log("submitted");
         axios.post('http://localhost:4000/user/register', val)
             .then(res => {
-                if(res.status == 200)
+                if(res.status === 200)
                 {
                     alert("created " + res.data.name);
                     window.location = '/login';
