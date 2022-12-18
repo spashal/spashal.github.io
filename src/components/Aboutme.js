@@ -103,11 +103,11 @@ export default function About(props) {
                         <Typography variant='h5'>
                             I am Palash Sharma
                         </Typography>
-                        <br/> <br/>
+                        <br/>
                         <Typography>
-                            I am a Computer Science sophomore at IIIT Hyderabad.<br/>
-                            I like to draw ocassionaly and also play music once in a while.<br/>
-                            Apart from discussing my views on random topics, you'll find me <br/>supporting Manchester United
+                            I am a Computer Science sophomore at IIIT Hyderabad.
+                            I like to draw ocassionaly and also play music once in a while.
+                            Apart from discussing my views on random topics, you'll find me supporting Manchester United
                             so please pray that my taste in football improve.
                              <br/>
                              <br/>

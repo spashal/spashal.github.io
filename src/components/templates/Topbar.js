@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import {useHistory} from 'react-router-dom';
 import Divider from '@mui/material/Divider';
+import ThemeToggle from '../ThemeToggle';
 import '../../App.css';
 
 export default function TopBar(props) {
@@ -37,18 +38,19 @@ export default function TopBar(props) {
           >
             {/* <MenuIcon /> */}
           </IconButton>
-          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h3" style={{fontWeight:"bold"}}  component="div" sx={{ flexGrow: 1 }}>
             Palash Sharma
           </Typography>
-          <Button color="inherit" onClick={() => goToAbout()}>
+          <Button color="inherit" style={{fontSize:"150%"}} onClick={() => goToAbout()}>
             About me
           </Button>
-          <Button color="inherit" onClick={() => goToBlog()}>
+          <Button style={{fontSize:"150%"}} color="inherit" onClick={() => goToBlog()}>
             My Blog
           </Button>
+          <div style={{width:"5%"}}></div>
+          <ThemeToggle/>
         </Toolbar>
         <Divider style={{backgroundColor:"white"}} />
-
       </AppBar>
     /* </Box> */
   );
