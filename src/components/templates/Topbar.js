@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import {useHistory} from 'react-router-dom';
 import Divider from '@mui/material/Divider';
-
+import '../../App.css';
 
 export default function TopBar(props) {
   const [pageIsIntro, setPage] = React.useState(true);
@@ -24,10 +24,9 @@ export default function TopBar(props) {
   const goToBlog = () => {
     history.push('/blog')
   }
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="transparent" elevation="0" style={{marginBottom: 'auto'}}>
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="static" color="transparent" elevation="0" id='maindiv'>
         <Toolbar>
           <IconButton
             size="large"
@@ -48,7 +47,7 @@ export default function TopBar(props) {
             My Blog
           </Button>
         </Toolbar>
-        <Divider />
+        <Divider style={{backgroundColor:"white"}} />
 
       </AppBar>
     </Box>

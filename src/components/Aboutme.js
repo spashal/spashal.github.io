@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: 'auto',
     padding: 'auto',
+    // backgroundColor: 'black',
+    // color:'white',
     // textAlign: 'center',
   },
   paper: {
@@ -64,7 +66,6 @@ export default function About(props) {
   useEffect(() => {
     axios.get(backendURL + 'blogsite/getCurrentlyWorking')
       .then(res => {
-        // console.log("haha", res);
         getCurrentlyWorking(res.data.currentlyWorking.text);
       })
       .catch(err => {
@@ -85,13 +86,13 @@ export default function About(props) {
     <div>
         <Topbar></Topbar>
         <div>
-        <Grid container direction="column" justify="left" style={{height:"100%"}}>
-            <Grid item>
+        <Grid container direction="column" justify="left" style={{height:"100%", padding:"5%", paddingTop:"0px"}}>
+            <Grid item >
               
-                <Grid item container className={classes.root} direction="row" wrap="nowrap" justify="space-evenly">
+                <Grid item container className={classes.root} direction="row" wrap="nowrap" justify="space-evenly" >
                     <Grid item className={classes.root} style={{minWidth: "55%"}}>
                         <Box>
-                            <img alt='Shrelock I drew for fun. Turned out great :)' src={mypic} style={{maxWidth:'100%', padding:'15%'}}/>
+                            <img alt='Shrelock I drew for fun. Turned out great :)' src={mypic} style={{maxWidth:'80%'}}/>
                         </Box>
                     </Grid>
                     <Grid item className={classes.root}>

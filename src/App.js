@@ -52,7 +52,8 @@ function App() {
   // }, [location]);
   return (
     <Router>
-      <div className="container">
+      <div className="container" data-theme={'light'} id='root'>
+      {/* <div className="container" data-theme={'light'} id='root'> */}
         <br/>
         <Route path="/" exact component={About}/>
         {/* <Route path="/register" component={Register}/> */}
