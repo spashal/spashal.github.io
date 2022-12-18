@@ -25,8 +25,8 @@ export default function TopBar(props) {
     history.push('/blog')
   }
   return (
-    <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" color="transparent" elevation="0" id='maindiv'>
+    // <Box sx={{ flexGrow: 1}}>
+      <AppBar position="fixed" id='root' style={{padding:"2%", paddingBottom:"0px"}} elevation="0" >
         <Toolbar>
           <IconButton
             size="large"
@@ -50,6 +50,6 @@ export default function TopBar(props) {
         <Divider style={{backgroundColor:"white"}} />
 
       </AppBar>
-    </Box>
+    /* </Box> */
   );
 }
