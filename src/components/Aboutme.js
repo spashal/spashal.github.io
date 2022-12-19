@@ -59,9 +59,9 @@ const videoConstraints = {
 // the renderer function in this page
 export default function About(props) {
   const classes = useStyles();
-  const [camera, OpenCamera] = useState(false);
-  const [curImage, setImage] = useState();
   const history = useHistory();
+  const theme = props.theme;
+  const changeTheme = props.changeTheme;
   const [currentlyWorking, getCurrentlyWorking] = useState("");
   useEffect(() => {
     axios.get(backendURL + 'blogsite/getCurrentlyWorking')
@@ -71,7 +71,8 @@ export default function About(props) {
       .catch(err => {
         console.log(err);
       });
-  });
+    }
+);
 //   axios.get(backendURL + "user/legit", {withCredentials: true})
 //     .then(res => {
 //         if(!res.data){
@@ -84,7 +85,7 @@ export default function About(props) {
 
   return (
     <div>
-        <Topbar></Topbar>
+        <Topbar changeTheme={changeTheme} theme={theme}></Topbar>
         <div>
         <Grid container direction="column" justify="left" style={{height:"100%", padding:"5%", paddingTop:"0px"}}>
             <Grid item >

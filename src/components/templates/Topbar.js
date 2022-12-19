@@ -13,6 +13,8 @@ import '../../App.css';
 export default function TopBar(props) {
   const [pageIsIntro, setPage] = React.useState(true);
   const history = useHistory();
+  const theme = props.theme;
+  const changeTheme = props.changeTheme;
   React.useEffect(() => {
     if(props.blog)
       setPage(false);
@@ -48,7 +50,7 @@ export default function TopBar(props) {
             My Blog
           </Button>
           <div style={{width:"5%"}}></div>
-          <ThemeToggle/>
+          <ThemeToggle theme={theme} changeTheme={changeTheme}/>
         </Toolbar>
         <Divider style={{backgroundColor:"white"}} />
       </AppBar>

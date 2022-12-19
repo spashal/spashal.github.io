@@ -15,9 +15,20 @@ import { browserName, browserVersion } from "react-device-detect";
 
 function App() {
   const [location, setLocation] = useState({});
+  const [theme, setTheme] = useState('light');
   const [sentDetails, setSentDetails] = useState(false);
   
   useEffect(() => {  
+
+    function checkPreviousTheme() {
+      if (localStorage.getItem('palash-blog-theme') === 'dark') {
+          setTheme('dark');
+      } else {
+          setTheme('light');
+      }
+    }
+    checkPreviousTheme()
+
     async function getIP() {
       const res = await axios.get('https://geolocation-db.com/json/')
       console.log(res.data);
@@ -49,20 +60,33 @@ function App() {
       })
     });
   }, []);
+
+  async function changeTheme(newTheme) {
+    localStorage.setItem("palash-blog-theme",newTheme);
+    setTheme(newTheme);
+  }
+
   // }, [location]);
   return (
     <Router>
-      <div className="container" data-theme={'light'} id='root'>
+      <div className="container" data-theme={theme} id='root'>
       {/* <div className="container" data-theme={'light'} id='root'> */}
         <br/>
-        <Route path="/" exact component={About}/>
+        <Route path="/" exact component={() => (<About
+                                            changeTheme={changeTheme} 
+                                            theme={theme} 
+                                          />)
+                                        }
+        />
         {/* <Route path="/register" component={Register}/> */}
         <Route path="/loginKarnaImpossibleHai123789" component={Login}/>
         <Route path="/logout" component={Logout} />
         <Route path="/blog" component={Dashboard}/>
         <Route path="/singlePage" component={SinglePage} />
         <Route path="/add" component={MyComponent} />
-        <Route path="/about" component={About} />
+        <Route path="/about" component={() => (
+          <About changeTheme={changeTheme} theme={theme} />
+  )} />
       </div>
     </Router>
   );
