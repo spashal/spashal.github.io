@@ -15,7 +15,6 @@ export default function ThemeToggle(props) {
 
     // function to toggle between light and dark theme
     function toggleTheme() {
-        console.log("i am working", theme)
         if (theme === 'dark') {
             changeTheme('light');
         } else {

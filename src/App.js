@@ -14,7 +14,6 @@ import { backendURL } from './components/Variables';
 import { browserName, browserVersion } from "react-device-detect";
 
 function App() {
-  const [location, setLocation] = useState({});
   const [theme, setTheme] = useState('light');
   const [sentDetails, setSentDetails] = useState(false);
   
@@ -36,7 +35,6 @@ function App() {
     };
     if(sentDetails == true)
       return;
-    console.log("running this");
     getIP().then(async () => {
       const userdetails = {
         location: await getIP(),
@@ -51,8 +49,6 @@ function App() {
           console.log(res.data.error);
         }
         else {
-          console.log("look here",userdetails);
-          console.log("Yay, sent your details mf (remove this in deployment version XD)");
         }
       })
       .catch(err => {
@@ -81,8 +77,14 @@ function App() {
         {/* <Route path="/register" component={Register}/> */}
         <Route path="/loginKarnaImpossibleHai123789" component={Login}/>
         <Route path="/logout" component={Logout} />
-        <Route path="/blog" component={Dashboard}/>
-        <Route path="/singlePage" component={SinglePage} />
+        <Route path="/blog" component={() => (<Dashboard
+                                              changeTheme={changeTheme}
+                                              theme={theme}
+                                            />)}/>
+        <Route path="/singlePage" component={() => (<SinglePage 
+                                                changeTheme={changeTheme}
+                                                theme={theme}
+                                              />)} />
         <Route path="/add" component={MyComponent} />
         <Route path="/about" component={() => (
           <About changeTheme={changeTheme} theme={theme} />

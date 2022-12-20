@@ -12,6 +12,7 @@ import {backendURL} from '../components/Variables';
 import {useHistory} from 'react-router-dom';
 import TopBar from './templates/Topbar';
 import Footer from './templates/Footer';
+import './BlogPage.css'
 
 const bull = (
   <Box
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
     
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const [listOfArticles, setArticlesList] = React.useState([]);
   const history = useHistory();
   const [isAdmin, setAdmin] = useState(false);
@@ -69,7 +70,7 @@ export default function Dashboard() {
           return;
         }
         setArticlesList(res.data.data);
-        console.log("This is the data recieved", res.data.data);
+        // console.log("This is the data recieved", res.data.data);
       })
       .catch(err => {
         console.log(err);
@@ -118,11 +119,11 @@ export default function Dashboard() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <TopBar blog></TopBar>
-      <main>
+      <TopBar blog theme={props.theme} changeTheme={props.changeTheme}></TopBar>
+      <main id='root' style={{paddingTop:"10%"}}>
             <div>
               {listOfArticles.map((article, ind) =>
-              <CardContent>
+              <CardContent id='root' style={{backgroundColor:'black'}}>
                 {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                   Word of the Day
                 </Typography> */}
@@ -133,7 +134,7 @@ export default function Dashboard() {
                     </Typography>
                   </Button>
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary" align="center">
+                <Typography sx={{ mb: 1.5 }} align="center">
                   {article.desc}
                 </Typography>
                 <Typography variant="body2" align="right">

@@ -53,12 +53,15 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export default function SinglePage() {
+export default function SinglePage(props) {
+    const theme = props.theme;
+    const changeTheme = props.changeTheme;    
     const search = useLocation().search;
     const name = new URLSearchParams(search).get('blog_title');
     const [blogTitle, setTitle] = useState(name);
     const [blogData, setData] = useState(null);
     const [isAdmin, setAdmin] = useState(false);
+
     console.log(blogTitle);
 
     useEffect(() => {
@@ -91,20 +94,20 @@ export default function SinglePage() {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
-            <TopBar blog></TopBar>
+        <React.Fragment id='root'>
+            <TopBar theme={theme} changeTheme={changeTheme}></TopBar>
             <div style={{height:'75px'}}>
 
             </div>
-              <Card sx={{ minWidth: 275 }}>
+              <Card sx={{ minWidth: 275 }} id='root'>
                 <CardContent>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom align="right">
+                    <Typography sx={{ fontSize: 14 }}  gutterBottom align="right">
                         {blogData ? blogData.dateCreatedString : "Loading"}
                     </Typography>
                     <Typography variant="h2" component="div" align="center">
                         {blogData ? blogData.title : "Loading"}
                     </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography sx={{ mb: 1.5 }} >
                     </Typography>
                     <div>
                       {blogData ? <div dangerouslySetInnerHTML={{__html: blogData.text}}></div>: "Loading"}

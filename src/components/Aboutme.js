@@ -128,7 +128,7 @@ export default function About(props) {
         
         </Grid>
         </div>
-        <Footer></Footer>
+        <Footer theme={theme}></Footer>
     </div>
   );
 }
