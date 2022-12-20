@@ -147,7 +147,7 @@ export default function Dashboard(props) {
               )}
           </div>
       </main>
-      <Footer></Footer>
+      <Footer theme={theme}></Footer>
     </React.Fragment>
   );
 }
